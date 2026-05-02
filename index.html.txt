@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Nhật Lâm | Visual Artist Portfolio</title>
+    <style>
+        :root { --primary: #2d3436; --accent: #0984e3; --bg: #f5f6fa; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; color: var(--primary); margin: 0; background: var(--bg); }
+        header { background: white; padding: 50px 20px; text-align: center; border-bottom: 3px solid var(--accent); }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card img { width: 100%; border-radius: 4px; transition: 0.3s; }
+        .card img:hover { transform: scale(1.02); }
+        .academic-info { background: #dfe6e9; padding: 25px; border-radius: 8px; margin-top: 40px; }
+        h2 { border-left: 5px solid var(--accent); padding-left: 15px; }
+        .badge { background: var(--accent); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NGUYỄN NHẬT LÂM</h1>
+    <p>Visual Artist | Student at Bach Khoa University</p>
+    <p><i>"Sự giao thoa giữa tư duy logic và nghệ thuật thị giác"</i></p>
+</header>
+
+<div class="container">
+    <section>
+        <h2>Dự án tiêu biểu (Portfolio)</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="art1.jpg" alt="Project 1">
+                <h3>Mobius - Lead Design</h3>
+                <p>Quản lý đội ngũ 4 thành viên. Tập trung vào sắc độ và cảm xúc người xem.</p>
+            </div>
+            <div class="card">
+                <img src="art2.jpg" alt="Project 2">
+                <h3>Văn hóa & Đời sống</h3>
+                <p>Thiết kế nhân vật mang hơi hướng gần gũi, phù hợp với văn hóa Việt Nam.</p>
+            </div>
+            </div>
+    </section>
+
+    <section class="academic-info">
+        <h2>Thành tích học thuật & Kỹ năng</h2>
+        <ul>
+            <li><strong>Đại học Bách Khoa:</strong> Sinh viên K69 (2024 - Hiện tại)</li>
+            <li><strong>THPT Lương Thế Vinh:</strong> GPA 8.7 | Top 5 HSG Tiếng Anh | Top 10 HSG Vật Lý</li>
+            <li><strong>Chứng chỉ:</strong> IELTS, SAT, Bằng khen học thuật LTV</li>
+            <li><strong>Kỹ năng:</strong> Pencil Drawing, Digital Art, Animation mượt mà, HTML/CSS cơ bản</li>
+        </ul>
+    </section>
+</div>
+
+</body>
+</html>
