@@ -3,161 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhat Lam Nguyen | Visual Artist & Engineer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nhat Lam Nguyen | Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --gold: #C5A059; --dark: #0A0A0A; --bg: #121212; --text: #F5F5F5; --gray: #B0B0B0; }
+        :root { --gold: #C5A059; --dark: #050505; --accent: #1a1a1a; --text: #e0e0e0; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Lato', sans-serif; line-height: 1.6; }
+        body { background-color: #000; color: var(--text); font-family: 'Urbanist', sans-serif; }
         
-        /* Layout Components */
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        section { margin-bottom: 100px; }
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
-        h2 { font-size: 32px; color: var(--gold); margin-bottom: 40px; border-left: 4px solid var(--gold); padding-left: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* Hero Section */
-        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('art5.jpg') center/cover; }
-        .hero h1 { font-size: 60px; margin-bottom: 10px; }
-        .hero p { font-size: 20px; color: var(--gold); letter-spacing: 5px; }
+        /* Header & Hero */
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--dark)), url('art5.jpg') center/cover; }
+        header h1 { font-size: clamp(50px, 8vw, 100px); font-weight: 700; letter-spacing: -2px; line-height: 0.9; margin-bottom: 20px; }
+        header h1 span { color: var(--gold); }
+        .tagline { font-size: 18px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
 
-        /* Portfolio Grid */
-        .project-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 80px; background: var(--dark); padding: 30px; border-radius: 15px; border: 1px solid #333; }
-        .project-card:nth-child(even) { direction: rtl; }
-        .project-card:nth-child(even) .project-info { direction: ltr; }
-        .project-img img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.4s; }
-        .project-img img:hover { transform: translateY(-10px); border: 1px solid var(--gold); }
-        .project-info h3 { font-size: 24px; margin-bottom: 15px; color: var(--gold); }
-        .project-info ul { list-style: none; margin-top: 15px; }
-        .project-info li { margin-bottom: 10px; color: var(--gray); font-size: 16px; }
-        .project-info li i { color: var(--gold); margin-right: 10px; }
+        /* Section Styling */
+        section { padding: 120px 0; border-bottom: 1px solid #222; }
+        .section-title { font-size: 48px; margin-bottom: 60px; color: #fff; position: relative; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 3px; background: var(--gold); }
 
-        /* Academic & Stats */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .stat-item { background: var(--dark); padding: 40px; text-align: center; border-radius: 15px; border-bottom: 4px solid var(--gold); }
-        .stat-item h4 { font-size: 40px; color: var(--gold); }
+        /* Project Gallery - Layout rộng rãi như Slide */
+        .project-showcase { display: flex; flex-direction: column; gap: 150px; }
+        .project-item { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
+        .project-item:nth-child(even) { direction: rtl; }
+        .project-item:nth-child(even) .project-desc { direction: ltr; }
         
+        .project-media { position: relative; overflow: hidden; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .project-media img { width: 100%; display: block; transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+        .project-media:hover img { transform: scale(1.05); }
+
+        .project-desc h3 { font-size: 36px; color: var(--gold); margin-bottom: 20px; }
+        .project-desc p { font-size: 18px; color: var(--gray); margin-bottom: 25px; line-height: 1.8; }
+        .project-meta { list-style: none; }
+        .project-meta li { margin-bottom: 12px; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; color: #888; }
+        .project-meta li span { color: #fff; margin-right: 10px; }
+
+        /* Academic Grid */
+        .academic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .card { background: var(--accent); padding: 50px; border-radius: 2px; border: 1px solid #333; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .card h4 { font-size: 60px; color: var(--gold); margin-bottom: 10px; }
+
         /* Footer */
-        footer { padding: 60px 0; text-align: center; background: #050505; border-top: 1px solid var(--gold); }
-        .social-links a { color: var(--text); font-size: 24px; margin: 0 20px; transition: 0.3s; }
-        .social-links a:hover { color: var(--gold); }
+        footer { padding: 100px 0; text-align: center; }
+        .cta-text { font-size: 40px; margin-bottom: 40px; color: #fff; }
+        .socials a { color: var(--gold); font-size: 30px; margin: 0 20px; text-decoration: none; }
 
-        @media (max-width: 768px) { .project-card { grid-template-columns: 1fr; } .hero h1 { font-size: 40px; } }
+        @media (max-width: 968px) { .project-item { grid-template-columns: 1fr; gap: 40px; } .academic-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>NHAT LAM NGUYEN</h1>
-        <p>VISUAL ARTIST | ANIMATOR | ENGINEER</p>
-    </div>
+    <header>
+        <p class="tagline">Visual Artist & Engineer</p>
+        <h1>NHAT LAM<br><span>NGUYEN</span></h1>
+        <p style="margin-top: 30px; opacity: 0.6;">Scroll to explore the intersection of logic and art</p>
+    </header>
 
     <div class="container">
         
-        <section>
-            <h2>Professional Profile</h2>
-            <p>I am a Visual Artist currently pursuing Engineering at <strong>Hanoi University of Science and Technology (BKU)</strong>. I specialize in character design, animation, and visual branding, blending technical logic with cultural storytelling. My goal is to create immersive experiences for the gaming and animation industry that resonate with local heritage.</p>
+        <section id="about">
+            <h2 class="section-title">The Vision</h2>
+            <p style="max-width: 800px; font-size: 22px; line-height: 1.6;">
+                I believe that <span>technical precision</span> enhances artistic expression. As an engineering student at <strong>HUST</strong>, I apply physical laws to motion and structural logic to visual storytelling, creating experiences that feel both magical and grounded in reality.
+            </p>
         </section>
 
-        <section>
-            <h2>Selected Projects</h2>
+        <section id="works">
+            <h2 class="section-title">Selected Works</h2>
+            <div class="project-showcase">
 
-            <div class="project-card">
-                <div class="project-img"><img src="art1.jpg" alt="Mobius 2022"></div>
-                <div class="project-info">
-                    <h3>Mobius 2022: Graduation Branding</h3>
-                    <p>Designed a sophisticated visual identity for high-achieving graduates.</p>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Concept:</strong> Luxury & Academic Maturity.</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>Symbol:</strong> "Snow Chrysanthemum" representing preserved innocence.</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>Palette:</strong> Deep Royal Blue & Gold.</li>
-                    </ul>
+                <div class="project-item">
+                    <div class="project-media"><img src="art1.jpg" alt="Mobius 2022"></div>
+                    <div class="project-desc">
+                        <h3>Mobius 2022</h3>
+                        <p>A sophisticated graduation branding project. We moved away from tradition to embrace "Snow Chrysanthemum" motifs, symbolizing the purity of the student heart amidst academic success.</p>
+                        <ul class="project-meta">
+                            <li><span>Concept</span> Luxury & Sophistication</li>
+                            <li><span>Role</span> Lead Designer</li>
+                            <li><span>Palette</span> Royal Blue / Gold</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <div class="project-img"><img src="art2.jpg" alt="Mobius 2023"></div>
-                <div class="project-info">
-                    <h3>Mobius 2023: Freedom & Beyond</h3>
-                    <p>A minimalist redesign focused on the theme of liberation and professional ambition.</p>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Metaphor:</strong> Clear blue skies and birds in flight.</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>Execution:</strong> Clean layouts to evoke a sense of limitless potential.</li>
-                    </ul>
+                <div class="project-item">
+                    <div class="project-media"><img src="art2.jpg" alt="Mobius 2023"></div>
+                    <div class="project-desc">
+                        <h3>Mobius 2023: Freedom</h3>
+                        <p>Focusing on the themes of liberation. I utilized expansive blue skies and bird imagery to visualize the boundless professional journeys awaiting our graduates.</p>
+                        <ul class="project-meta">
+                            <li><span>Theme</span> Freedom & Beyond</li>
+                            <li><span>Vibe</span> Minimalist / Aspiration</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <div class="project-img"><img src="art3.jpg" alt="Mid-Autumn"></div>
-                <div class="project-info">
-                    <h3>Mid-Autumn Cultural Poster</h3>
-                    <p>Bridging traditional Vietnamese motifs with modern youth aesthetics.</p>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Heritage:</strong> Integration of localized patterns and symbols.</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>Atmosphere:</strong> Warm golden moon-glow against deep twilight gradients.</li>
-                    </ul>
+                <div class="project-item">
+                    <div class="project-media"><img src="art3.jpg" alt="Mid-Autumn"></div>
+                    <div class="project-desc">
+                        <h3>Bright Moon Festival</h3>
+                        <p>Integrating traditional Vietnamese patterns with modern night-sky gradients. A project that celebrates heritage through a contemporary lens.</p>
+                        <ul class="project-meta">
+                            <li><span>Context</span> Youth Volunteer Event</li>
+                            <li><span>Elements</span> Heritage Motifs / Warm Glow</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <div class="project-img"><img src="art4.jpg" alt="Memory Station"></div>
-                <div class="project-info">
-                    <h3>"Station of Memories" - Lunar New Year</h3>
-                    <p>A conceptual journey visualizing the evolution of Vietnamese traditions.</p>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Technique:</strong> Perspective blending of past and present architecture.</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>Mood:</strong> Muted, desaturated tones to evoke deep nostalgia.</li>
-                    </ul>
+                <div class="project-item">
+                    <div class="project-media"><img src="art4.jpg" alt="Trạm Ký Ức"></div>
+                    <div class="project-desc">
+                        <h3>Station of Memories</h3>
+                        <p>A cinematic illustration exploring the evolution of Lunar New Year. We blended past and present architecture into one single, nostalgic frame.</p>
+                        <ul class="project-meta">
+                            <li><span>Technique</span> Perspective Blending</li>
+                            <li><span>Feel</span> Muted / Nostalgic / Time Travel</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <div class="project-img"><img src="art5.jpg" alt="Horror Run Away"></div>
-                <div class="project-info">
-                    <h3>"Run Away" Horror Installation</h3>
-                    <p>An immersive psychological horror experience designed for live events.</p>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Materiality:</strong> Hand-sculpted foam tentacles and organic textures.</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>Design:</strong> High-contrast crimson lighting to create focal points of dread.</li>
-                    </ul>
+                <div class="project-item">
+                    <div class="project-media"><img src="art5.jpg" alt="Horror Run Away"></div>
+                    <div class="project-desc">
+                        <h3>Run Away Installation</h3>
+                        <p>An immersive psychological horror experience. Hand-sculpted foam tentacles and crimson lighting were used to evoke a visceral sense of dread.</p>
+                        <ul class="project-meta">
+                            <li><span>Medium</span> Site-specific Installation</li>
+                            <li><span>Material</span> Sculpted Foam / Crimson LED</li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
         </section>
 
-        <section>
-            <h2>Academic Foundation</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
+        <section id="academic">
+            <h2 class="section-title">Academic Merit</h2>
+            <div class="academic-grid">
+                <div class="card">
                     <h4>8.7</h4>
-                    <p>Year 12 GPA (LTV)</p>
+                    <p>YEAR 12 GPA</p>
                 </div>
-                <div class="stat-item">
+                <div class="card">
                     <h4>Top 5</h4>
-                    <p>English Merit Award</p>
+                    <p>ENGLISH MERIT</p>
                 </div>
-                <div class="stat-item">
+                <div class="card">
                     <h4>Top 10</h4>
-                    <p>Physics Merit Award</p>
+                    <p>PHYSICS MERIT</p>
                 </div>
             </div>
-            <div style="margin-top: 40px; background: var(--dark); padding: 30px; border-radius: 15px;">
-                <p><i class="fa-solid fa-graduation-cap" style="color:var(--gold)"></i> <strong>Bách Khoa University (BKU):</strong> Engineering Student (Class of 2028)</p>
-                <p><i class="fa-solid fa-certificate" style="color:var(--gold)"></i> <strong>Global Certs:</strong> 6.5 IELTS Certified | 1270 SAT Certified | High School Academic Honors</p>
-            </div>
+            <p style="margin-top: 40px; color: #888;">Currently: <strong>Hanoi University of Science and Technology (K69)</strong>. Certified in IELTS & SAT.</p>
         </section>
 
     </div>
 
     <footer>
-        <h2>Connect With Me</h2>
-        <p style="margin-bottom: 20px;">Ready for collaborations in Game Design & Animation.</p>
-        <div class="social-links">
-            <a href="mailto:nhatlamnguyennln@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://lehoangyen305.github.io/NhatLamVisualArtsResume/"><i class="fa-brands fa-github"></i></a>
+        <h2 class="cta-text">LET'S CREATE <span>TOGETHER</span></h2>
+        <div class="socials">
+            <a href="mailto:lam.nguyen.art@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/lehoangyen305"><i class="fa-brands fa-github"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        <p style="font-size: 12px; margin-top: 40px; opacity: 0.4;">&copy; 2026 Nhat Lam Nguyen. Logic + Art.</p>
+        <p style="margin-top: 50px; font-size: 12px; opacity: 0.3; letter-spacing: 2px;">&copy; 2026 NHAT LAM NGUYEN Portfolio</p>
     </footer>
 
 </body>
