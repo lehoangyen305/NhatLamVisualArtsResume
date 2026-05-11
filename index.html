@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root { --gold: #C5A059; --dark: #050505; --accent: #111; --text: #f0f0f0; --gray: #888; }
-        
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #000; color: var(--text); font-family: 'Urbanist', sans-serif; line-height: 1.6; }
-        
         .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
         /* 1. Trang chủ với nền art4 */
@@ -24,69 +22,68 @@
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.6), var(--dark)), url('art4.jpg') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), var(--dark)), url('art4.jpg') center/cover;
             border-bottom: 2px solid var(--gold);
-            background-attachment: fixed; /* Hiệu ứng cuộn mượt */
+            background-attachment: fixed;
         }
-        header h1 { font-size: clamp(50px, 8vw, 100px); font-weight: 700; letter-spacing: -2px; line-height: 0.9; }
+        header h1 { font-size: clamp(50px, 8vw, 100px); font-weight: 700; letter-spacing: -2px; line-height: 0.9; margin-bottom: 20px; }
         header h1 span { color: var(--gold); }
-        .tagline { font-size: 18px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+        .tagline { font-size: 18px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
 
-        section { padding: 120px 0; border-bottom: 1px solid #222; }
+        section { padding: 100px 0; border-bottom: 1px solid #222; }
         .section-title { font-size: 36px; margin-bottom: 60px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin-top: 15px; }
 
-        /* 2. Cấu trúc Portfolio mới */
+        /* Project Layout */
         .project-item { margin-bottom: 150px; }
-        .project-header { margin-bottom: 30px; border-bottom: 1px solid #1a1a1a; padding-bottom: 20px; }
-        .project-header h3 { font-size: 32px; color: var(--gold); margin-bottom: 15px; }
-
+        .project-header h3 { font-size: 32px; color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
+        
         .visual-display { 
             display: grid; 
             grid-template-columns: 1fr 1.2fr; 
-            gap: 30px; 
+            gap: 25px; 
             margin-bottom: 30px;
         }
-
-        .media-box { border: 1px solid #222; position: relative; overflow: hidden; }
-        .media-box img { width: 100%; display: block; transition: transform 0.5s; }
-        .media-box:hover img { transform: scale(1.02); }
-
+        .media-box { border: 1px solid #222; position: relative; background: #0a0a0a; }
+        .media-box img { width: 100%; display: block; transition: 0.4s; }
         .label { 
             position: absolute; top: 15px; left: 15px; 
             background: rgba(0,0,0,0.8); color: var(--gold); 
-            padding: 5px 15px; font-size: 11px; font-weight: 700;
+            padding: 5px 12px; font-size: 10px; font-weight: 700;
             text-transform: uppercase; border: 1px solid var(--gold); z-index: 5;
         }
 
-        /* Phần giải thích tiến trình tư duy */
+        /* Context, Material, Ideals */
         .project-details { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 40px; 
+            gap: 30px; 
             background: rgba(197, 160, 89, 0.03); 
             padding: 30px; 
-            border-top: 1px solid #222;
+            border: 1px solid #1a1a1a;
         }
-        .detail-col h4 { font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        .detail-col p { font-size: 14px; color: #ccc; }
+        .detail-col h4 { font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .detail-col p { font-size: 14px; color: #ccc; text-align: justify; }
 
-        /* Stats & CV */
-        .cv-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
-        .exp-item { margin-bottom: 40px; border-left: 2px solid #222; padding-left: 25px; }
-        .exp-head h4 { font-size: 22px; color: #fff; }
-        .date { color: var(--gold); font-weight: 700; font-size: 14px; }
-        
-        .skills-card { background: #0a0a0a; border: 1px solid #222; padding: 40px; }
-        .tag { background: #151515; padding: 6px 15px; font-size: 11px; border: 1px solid #333; color: #ccc; margin: 0 5px 10px 0; display: inline-block; }
+        /* Academic Stats Grid */
+        .academic-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 20px; 
+            margin-top: 40px; 
+        }
+        .stat-card { background: #0a0a0a; padding: 30px; text-align: center; border: 1px solid #1a1a1a; transition: 0.3s; }
+        .stat-card:hover { border-color: var(--gold); }
+        .stat-card h4 { font-size: 32px; color: var(--gold); margin-bottom: 5px; }
+        .stat-card p { font-size: 11px; text-transform: uppercase; color: var(--gray); letter-spacing: 1px; }
 
-        footer { padding: 100px 0; text-align: center; }
-        .socials a { color: var(--gray); font-size: 28px; margin: 0 20px; transition: 0.3s; }
+        footer { padding: 80px 0; text-align: center; background: #020202; }
+        .socials a { color: var(--gray); font-size: 24px; margin: 0 15px; transition: 0.3s; }
         .socials a:hover { color: var(--gold); }
 
         @media (max-width: 968px) {
-            .visual-display, .project-details, .cv-grid { grid-template-columns: 1fr; }
-            header h1 { font-size: 60px; }
+            .visual-display, .project-details { grid-template-columns: 1fr; }
+            header h1 { font-size: 50px; }
         }
     </style>
 </head>
@@ -95,7 +92,7 @@
     <header>
         <p class="tagline">Visual Artist & Engineer</p>
         <h1>NHAT LAM <span>NGUYEN</span></h1>
-        <p style="opacity: 0.7; margin-top: 20px; font-size: 14px; letter-spacing: 3px;">REDEFINING LOGIC THROUGH AESTHETICS</p>
+        <p style="opacity: 0.6; margin-top: 15px; font-size: 14px; letter-spacing: 3px;">THE INTERSECTION OF LOGIC & ART</p>
     </header>
 
     <div class="container">
@@ -104,70 +101,130 @@
             <h2 class="section-title">Design Process</h2>
 
             <div class="project-item">
-                <div class="project-header">
-                    <h3>Mobius 2022: Luxury Maturity</h3>
-                </div>
+                <div class="project-header"><h3>Mobius 2022: Luxury Maturity</h3></div>
                 <div class="visual-display">
-                    <div class="media-box"><span class="label">Sketch</span><img src="art1_sketch.jpg"></div>
+                    <div class="media-box"><span class="label">Initial Sketch</span><img src="art1_sketch.jpg"></div>
                     <div class="media-box"><span class="label">Final Artwork</span><img src="art1.jpg"></div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-col">
-                        <h4>Context</h4>
-                        <p>Branding cho sự kiện tốt nghiệp khối THPT. Yêu cầu tạo ra sự sang trọng nhưng không làm mất đi nét hồn nhiên của tuổi học trò.</p>
-                    </div>
-                    <div class="detail-col">
-                        <h4>Material</h4>
-                        <p>Digital Painting (Photoshop), kết hợp với kỹ thuật tạo khối Velvet (Nhung) để tạo cảm giác cao cấp.</p>
-                    </div>
-                    <div class="detail-col">
-                        <h4>Ideals</h4>
-                        <p>Sử dụng <strong>Snow Chrysanthemum</strong> thay cho vòng nguyệt quế để tượng trưng cho sự thông thái trong trẻo.</p>
-                    </div>
+                    <div class="detail-col"><h4>Context</h4><p>Visual identity for a high-profile graduation event targeting distinguished academic cohorts.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Digital Painting, Royal Blue and Gold color palette.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Replaced traditional laurels with Snow Chrysanthemum to preserve student-like innocence while maintaining a sense of wisdom.</p></div>
                 </div>
             </div>
 
             <div class="project-item">
-                <div class="project-header">
-                    <h3>Trạm Ký Ức (Station of Memories)</h3>
-                </div>
+                <div class="project-header"><h3>Mobius 2023: Freedom</h3></div>
                 <div class="visual-display">
-                    <div class="media-box"><span class="label">Perspective Sketch</span><img src="art4_sketch.png"></div>
-                    <div class="media-box"><span class="label">Final Artwork</span><img src="art4.jpg"></div>
+                    <div class="media-box"><span class="label">Sketch</span><img src="art2_sketch.jpg"></div>
+                    <div class="media-box"><span class="label">Final Artwork</span><img src="art2.jpg"></div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-col">
-                        <h4>Context</h4>
-                        <p>Dự án cá nhân về hoài niệm. Tái hiện lại không gian ga tàu cũ trong những ngày giáp Tết.</p>
-                    </div>
-                    <div class="detail-col">
-                        <h4>Material</h4>
-                        <p>Mixed Media: Phác thảo tay kết hợp Digital Rendering để xử lý ánh sáng (Chiaroscuro).</p>
-                    </div>
-                    <div class="detail-col">
-                        <h4>Ideals</h4>
-                        <p>Áp dụng tư duy **Kiến trúc** từ cha để xây dựng bố cục 1 điểm tụ, mang lại cảm giác tĩnh lặng và sâu thẳm.</p>
-                    </div>
+                    <div class="detail-col"><h4>Context</h4><p>Branding for the 2023 graduation theme focusing on liberation and future potential.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Minimalist Digital Illustration, expansive sky backdrop.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Utilizing birds in flight to represent the boundless journey and "Freedom & Beyond" spirit of graduates.</p></div>
                 </div>
             </div>
 
-            </section>
-
-        <section id="cv">
-            <h2 class="section-title">Background</h2>
-            <div class="cv-grid">
-                <div class="experience-list">
-                    <div class="exp-item">
-                        <div class="exp-head">
-                            <h4>Design Lead | Mobius</h4>
-                            <span class="date">2022 - 2023</span>
-                        </div>
-                        <p>Chịu trách nhiệm chính về mặt thị giác và quản lý nhóm thiết kế 4 người.</p>
-                    </div>
+            <div class="project-item">
+                <div class="project-header"><h3>Bright Moon Festival (Ver 1)</h3></div>
+                <div class="visual-display">
+                    <div class="media-box"><span class="label">Sketch (PNG)</span><img src="art3_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Artwork</span><img src="art3.jpg"></div>
                 </div>
-                <div class="skills-sidebar">
-                    <div class="skills-card">
-                        <h5>Technical Stack</h5>
-                        <div class="tag">Adobe Photoshop</div>
-                        <div class="tag">After Effects</div>
-                        <div class="tag">HTML/CSS</div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>Visuals for a youth-led volunteer Mid-Autumn festival event.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Digital Graphic Design, night-sky gradients.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Blending heritage motifs with modern triangular geometry to appeal to younger generations.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>Bright Moon Festival (Ver 2)</h3></div>
+                <div class="visual-display">
+                    <div class="media-box"><span class="label">Sketch (PNG)</span><img src="art3-2_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Artwork (PNG)</span><img src="art3-2.png"></div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>Alternative visual concept focusing on the central lunar symbol.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Vector Illustration with glowing texture effects.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Highlighting the "Bright Moon" through high contrast and sharp cultural patterns.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>Station of Memories</h3></div>
+                <div class="visual-display">
+                    <div class="media-box"><span class="label">Sketch (PNG)</span><img src="art4_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Artwork</span><img src="art4.jpg"></div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>A narrative-driven piece exploring the passage of time across different eras.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Digital Environment Painting, weathered textures.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Using a 1-point perspective to evoke a sense of "time travel" through Lunar New Year memories.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>Run Away Installation</h3></div>
+                <div class="visual-display" style="grid-template-columns: 1fr;">
+                    <div class="media-box"><span class="label">Full Installation</span><img src="art5.jpg"></div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>Physical horror installation designed for an immersive experience.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Hand-sculpted foam limbs, crimson LEDs, black tarps.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>To eliminate the viewer's sense of safety through psychological horror and visceral materials.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>Burn It Up / Lift Me Up</h3></div>
+                <div class="visual-display">
+                    <div class="media-box"><span class="label">Sketch (PNG)</span><img src="art6_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Artwork (PNG)</span><img src="art6.png"></div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>Promotional poster for youth movement and volunteer activities.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Collage Art Style, torn paper textures.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Energetic and raw visuals to spark motivation and communal spirit.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>The 90 Days Countdown</h3></div>
+                <div class="visual-display">
+                    <div class="media-box"><span class="label">Sketch (PNG)</span><img src="art7_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Artwork (PNG)</span><img src="art7.png"></div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>Social media branding for a graduation countdown series.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Grid-based Graphic Design, neon glowing effects.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Creating a futuristic and rhythmic aesthetic to build anticipation for the final academic milestone.</p></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="merit">
+            <h2 class="section-title">Academic Merit</h2>
+            <div class="academic-grid">
+                <div class="stat-card"><h4>8.7</h4><p>Year 12 GPA (LTV)</p></div>
+                <div class="stat-card"><h4>TOP 5</h4><p>English Merit Award</p></div>
+                <div class="stat-card"><h4>TOP 10</h4><p>Physics Merit Award</p></div>
+                <div class="stat-card"><h4>6.5</h4><p>IELTS Certified</p></div>
+                <div class="stat-card"><h4>1270</h4><p>SAT Certified</p></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="socials">
+            <a href="mailto:lam.nguyen.art@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/lehoangyen305"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p style="margin-top: 40px; font-size: 11px; opacity: 0.3; letter-spacing: 2px;">&copy; 2026 NHAT LAM NGUYEN | THE INTERSECTION OF LOGIC & ART</p>
+    </footer>
+
+</body>
+</html>
