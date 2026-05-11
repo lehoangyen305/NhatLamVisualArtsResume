@@ -3,71 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhat Lam Nguyen | Visual Artist & Engineer Portfolio</title>
+    <title>Nhat Lam Nguyen | Visual Artist Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --gold: #C5A059; --dark: #050505; --accent: #111; --text: #f0f0f0; --gray: #888; }
+        :root { --gold: #C5A059; --dark: #050505; --text: #f0f0f0; --gray: #888; }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #000; color: var(--text); font-family: 'Urbanist', sans-serif; line-height: 1.6; }
         
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
         /* Header */
         header { 
-            height: 90vh; 
+            height: 60vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.7), var(--dark)), url('art5.jpg') center/cover;
-            border-bottom: 2px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
         }
-        header h1 { font-size: clamp(50px, 8vw, 100px); font-weight: 700; letter-spacing: -2px; line-height: 0.9; margin-bottom: 20px; }
+        header h1 { font-size: 80px; font-weight: 700; letter-spacing: -2px; }
         header h1 span { color: var(--gold); }
         .tagline { font-size: 18px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
 
         /* Sections */
-        section { padding: 100px 0; border-bottom: 1px solid #222; }
-        .section-title { font-size: 36px; margin-bottom: 50px; color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold); margin-top: 10px; }
+        section { padding: 80px 0; border-bottom: 1px solid #222; }
+        .section-title { font-size: 32px; margin-bottom: 50px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--gold); margin-top: 10px; }
 
-        /* Portfolio & Hover Effect */
-        .project-list { display: flex; flex-direction: column; gap: 80px; }
-        .project-box { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
-        
-        .image-container { position: relative; overflow: hidden; cursor: pointer; border: 1px solid #222; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .main-img { width: 100%; display: block; transition: opacity 0.5s ease; }
-        .hover-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
-        
-        .image-container:hover .main-img { opacity: 0; }
-        .image-container:hover .hover-img { opacity: 1; }
+        /* Portfolio Layout: Side-by-Side */
+        .project-item { margin-bottom: 120px; }
+        .project-header { margin-bottom: 25px; }
+        .project-header h3 { font-size: 28px; color: var(--gold); margin-bottom: 10px; }
+        .project-header p { color: var(--gray); max-width: 800px; }
 
-        .project-info h3 { font-size: 30px; color: var(--gold); margin-bottom: 15px; }
+        .visual-display { 
+            display: grid; 
+            grid-template-columns: 1fr 1.5fr; /* Sketch nhỏ hơn bản Final một chút hoặc bằng nhau */
+            gap: 20px; 
+            align-items: start;
+        }
 
-        /* Experience & CV */
-        .cv-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
-        .exp-item { margin-bottom: 40px; border-left: 1px solid #333; padding-left: 20px; }
-        .exp-head { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .exp-head h4 { font-size: 20px; color: #fff; }
-        .exp-head .date { color: var(--gold); font-weight: 700; font-size: 14px; }
-        
-        .skills-card { background: #0a0a0a; border: 1px solid #222; padding: 40px; border-radius: 4px; }
-        .skill-group { margin-bottom: 30px; }
-        .skill-group h5 { font-size: 13px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background: #1a1a1a; padding: 5px 12px; font-size: 11px; border: 1px solid #333; color: #ccc; }
+        .media-box { border: 1px solid #1a1a1a; position: relative; }
+        .media-box img { width: 100%; display: block; filter: grayscale(20%); transition: 0.5s; }
+        .media-box img:hover { filter: grayscale(0%); }
 
-        /* Footer */
-        footer { padding: 100px 0; text-align: center; background: #020202; }
-        .socials a { color: var(--gray); font-size: 26px; margin: 0 20px; transition: 0.3s; }
-        .socials a:hover { color: var(--gold); }
+        .label { 
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            background: rgba(0,0,0,0.8); 
+            color: var(--gold); 
+            padding: 4px 10px; 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            border: 1px solid var(--gold);
+        }
 
-        @media (max-width: 968px) { .project-box, .cv-grid { grid-template-columns: 1fr; } }
+        /* CV & Footer */
+        .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        footer { padding: 80px 0; text-align: center; }
+        .socials a { color: var(--gold); font-size: 24px; margin: 0 15px; }
+
+        @media (max-width: 768px) {
+            .visual-display { grid-template-columns: 1fr; }
+            header h1 { font-size: 50px; }
+        }
     </style>
 </head>
 <body>
@@ -80,144 +86,146 @@
     <div class="container">
         
         <section id="portfolio">
-            <h2 class="section-title">Selected Works</h2>
-            <p style="color: var(--gold); margin-bottom: 30px; font-size: 14px;">(Hover to see original sketches)</p>
-            
-            <div class="project-list">
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art1.jpg" class="main-img">
-                        <img src="art1_sketch.jpg" class="hover-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Mobius 2022</h3>
-                        <p>Branding for graduation events. Inspired by academic wisdom.</p>
-                    </div>
-                </div>
+            <h2 class="section-title">Design Process</h2>
 
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art2.jpg" class="main-img">
-                        <img src="art2_sketch.jpg" class="hover-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Mobius 2023</h3>
-                        <p>Focusing on the boundless future of graduates.</p>
-                    </div>
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Mobius 2022: Luxury Maturity</h3>
+                    <p>Bộ nhận diện cho sự kiện tốt nghiệp. Thay thế vòng nguyệt quế truyền thống bằng hoa Cúc Tuyết để giữ gìn nét thanh xuân của học sinh.</p>
                 </div>
-
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art3.jpg" class="main-img">
-                        <img src="art3_sketch.png" class="hover-img">
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Initial Sketch</span>
+                        <img src="art1_sketch.jpg">
                     </div>
-                    <div class="project-info">
-                        <h3>Trăng Sáng Trường Lương</h3>
-                        <p>Modernized traditional patterns for youth engagement.</p>
-                    </div>
-                </div>
-
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art3-2.png" class="main-img">
-                        <img src="art3-2_sketch.png" class="hover-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Trăng Sáng (Variant)</h3>
-                        <p>Alternative visual concept for the Mid-Autumn campaign.</p>
-                    </div>
-                </div>
-
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art4.jpg" class="main-img">
-                        <img src="art4_sketch.png" class="hover-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Trạm Ký Ức</h3>
-                        <p>A cinematic depiction of nostalgia and architecture.</p>
-                    </div>
-                </div>
-
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art5.jpg" class="main-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Run Away</h3>
-                        <p>Art installation focusing on psychological horror.</p>
-                    </div>
-                </div>
-
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art6.png" class="main-img">
-                        <img src="art6_sketch.png" class="hover-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Burn It Up</h3>
-                        <p>Dynamic collage design for student movements.</p>
-                    </div>
-                </div>
-
-                <div class="project-box">
-                    <div class="image-container">
-                        <img src="art7.png" class="main-img">
-                        <img src="art7_sketch.png" class="hover-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>The 90 Days</h3>
-                        <p>Branding for graduation countdown.</p>
+                    <div class="media-box">
+                        <span class="label">Final Artwork</span>
+                        <img src="art1.jpg">
                     </div>
                 </div>
             </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Mobius 2023: Freedom</h3>
+                    <p>Hình ảnh cánh chim bay giữa bầu trời rộng mở, đại diện cho những khát vọng không giới hạn của thế hệ tốt nghiệp.</p>
+                </div>
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Process Sketch</span>
+                        <img src="art2_sketch.jpg">
+                    </div>
+                    <div class="media-box">
+                        <span class="label">Final Artwork</span>
+                        <img src="art2.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Trăng Sáng Trường Lương</h3>
+                    <p>Kết hợp họa tiết truyền thống và hình khối hiện đại cho chiến dịch Trung Thu.</p>
+                </div>
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Drafting</span>
+                        <img src="art3_sketch.png">
+                    </div>
+                    <div class="media-box">
+                        <span class="label">Final Design</span>
+                        <img src="art3.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Trăng Sáng (Variant)</h3>
+                    <p>Phương án visual thay thế, tập trung vào chiều sâu không gian.</p>
+                </div>
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Sketch</span>
+                        <img src="art3-2_sketch.png">
+                    </div>
+                    <div class="media-box">
+                        <span class="label">Render</span>
+                        <img src="art3-2.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Trạm Ký Ức</h3>
+                    <p>Phác họa cinematic về một sân ga cũ, tập trung vào kể chuyện qua ánh sáng và bối cảnh.</p>
+                </div>
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Perspective Sketch</span>
+                        <img src="art4_sketch.png">
+                    </div>
+                    <div class="media-box">
+                        <span class="label">Final Painting</span>
+                        <img src="art4.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Burn It Up / Lift Me Up</h3>
+                    <p>Phong cách Collage mạnh mẽ cho các phong trào học sinh.</p>
+                </div>
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Composition Sketch</span>
+                        <img src="art6_sketch.png">
+                    </div>
+                    <div class="media-box">
+                        <span class="label">Final Poster</span>
+                        <img src="art6.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>The 90 Days</h3>
+                    <p>Hệ thống visual đếm ngược ngày tốt nghiệp.</p>
+                </div>
+                <div class="visual-display">
+                    <div class="media-box">
+                        <span class="label">Grid Sketch</span>
+                        <img src="art7_sketch.png">
+                    </div>
+                    <div class="media-box">
+                        <span class="label">Final Asset</span>
+                        <img src="art7.png">
+                    </div>
+                </div>
+            </div>
+
         </section>
 
-        <section id="cv">
-            <h2 class="section-title">Leadership & Experience</h2>
+        <section id="contact">
             <div class="cv-grid">
-                <div class="experience-list">
-                    <div class="exp-item">
-                        <div class="exp-head">
-                            <h4>Design Lead | Mobius Projects</h4>
-                            <span class="date">2022 - 2023</span>
-                        </div>
-                        <p style="color: var(--gray);">Managed a creative team of 4 to develop full visual identities.</p>
-                    </div>
-                    <div class="exp-item">
-                        <div class="exp-head">
-                            <h4>Team Leader | House Hephaestus</h4>
-                            <span class="date">"First Sight" Event</span>
-                        </div>
-                        <p style="color: var(--gray);">Led 64 members to a Top 7 finish.</p>
-                    </div>
+                <div>
+                    <h2 class="section-title">Contact</h2>
+                    <p>Sẵn sàng cho các cơ hội hợp tác thiết kế truyền thông và Visual Art.</p>
                 </div>
-
-                <div class="skills-sidebar">
-                    <div class="skills-card">
-                        <div class="skill-group">
-                            <h5>Technical Skills</h5>
-                            <div class="tag-cloud">
-                                <span class="tag">Character Design</span>
-                                <span class="tag">Adobe Photoshop</span>
-                                <span class="tag">After Effects</span>
-                                <span class="tag">HTML/CSS</span>
-                            </div>
-                        </div>
-                    </div>
+                <div style="text-align: right; align-self: center;" class="socials">
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </section>
-
     </div>
 
     <footer>
-        <h2 style="margin-bottom: 30px;">LET'S CREATE TOGETHER</h2>
-        <div class="socials">
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
+        <p style="font-size: 12px; color: var(--gray);">&copy; 2026 NHAT LAM NGUYEN</p>
     </footer>
 
 </body>
