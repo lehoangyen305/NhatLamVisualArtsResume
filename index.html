@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhat Lam Nguyen | Portfolio</title>
+    <title>Nhat Lam Nguyen | Visual Artist & Engineer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&display=swap" rel="stylesheet">
@@ -34,15 +34,15 @@
         .section-title { font-size: 36px; margin-bottom: 60px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin-top: 15px; }
 
-        /* Cấu trúc Portfolio Tỉ lệ 1:2 */
+        /* Cấu trúc Portfolio Tỉ lệ Sketch 1 : Final 2 */
         .project-item { margin-bottom: 150px; }
         .project-header h3 { font-size: 28px; color: var(--gold); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
         
         .visual-display { 
             display: grid; 
-            grid-template-columns: 1fr 2fr; /* Sketch chiếm 1 phần, Final chiếm 2 phần */
+            grid-template-columns: 1fr 2fr; 
             gap: 30px; 
-            align-items: end; /* Căn lề dưới để ảnh trông gọn hơn */
+            align-items: end; 
             margin-bottom: 30px;
         }
 
@@ -67,7 +67,7 @@
             border: 1px solid #1a1a1a;
         }
         .detail-col h4 { font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        .detail-col p { font-size: 14px; color: #ccc; }
+        .detail-col p { font-size: 14px; color: #ccc; text-align: justify; }
 
         /* Academic Merit */
         .academic-grid { 
@@ -86,7 +86,7 @@
         @media (max-width: 968px) {
             .visual-display { grid-template-columns: 1fr; }
             .project-details { grid-template-columns: 1fr; }
-            .visual-display .media-box:first-child { width: 50%; } /* Sketch vẫn bé trên mobile */
+            .visual-display .media-box:first-child { width: 60%; }
         }
     </style>
 </head>
@@ -116,45 +116,73 @@
             </div>
 
             <div class="project-item">
-                <div class="project-header"><h3>Station of Memories</h3></div>
+                <div class="project-header"><h3>Mobius 2023: Freedom</h3></div>
                 <div class="visual-display">
-                    <div class="media-box"><span class="label">Draft</span><img src="art4_sketch.png"></div>
-                    <div class="media-box"><span class="label">Final Painting</span><img src="art4.jpg"></div>
+                    <div class="media-box"><span class="label">Sketch</span><img src="art2_sketch.jpg"></div>
+                    <div class="media-box"><span class="label">Final Artwork</span><img src="art2.jpg"></div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-col"><h4>Context</h4><p>A narrative piece exploring the passage of time through the lens of nostalgic Lunar New Year settings.</p></div>
-                    <div class="detail-col"><h4>Material</h4><p>Digital Environment Painting. Emphasis on chiaroscuro lighting and weathered textures.</p></div>
-                    <div class="detail-col"><h4>Ideals</h4><p>Applying perspective-view logic to create a sense of "Time Travel" across different eras of Vietnamese architecture.</p></div>
+                    <div class="detail-col"><h4>Context</h4><p>Theme-driven branding for the 2023 graduates, emphasizing the transition from structured education to independent life.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Minimalist Digital Illustration. Utilization of expansive negative space to create depth.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Incorporated birds in flight as a metaphor for liberation and the "Freedom & Beyond" spirit, maximizing openness in the layout.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>Station of Memories</h3></div>
+                <div class="visual-display">
+                    <div class="media-box"><span class="label">Perspective Draft</span><img src="art4_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Environment</span><img src="art4.jpg"></div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>A narrative piece exploring the passage of time through nostalgic Lunar New Year settings across different eras.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Digital Environment Painting. Heavy emphasis on chiaroscuro lighting and weathered textures.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Applying 1-point perspective logic to create a cinematic "Time Travel" effect, merging heritage architecture with modern storytelling.</p></div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header"><h3>Run Away Installation</h3></div>
+                <div class="visual-display" style="grid-template-columns: 1fr;">
+                    <div class="media-box">
+                        <span class="label">Physical Installation</span>
+                        <img src="art5.jpg" alt="Run Away Installation View">
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-col"><h4>Context</h4><p>A psychological horror installation created for an immersive student event.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Mixed Media: Hand-sculpted foam limbs, crimson LED lighting, and industrial black tarps.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Aimed to eliminate the viewer's sense of safety by manipulating light and shadow to trigger a visceral "fight or flight" response.</p></div>
                 </div>
             </div>
 
             <div class="project-item">
                 <div class="project-header"><h3>Burn It Up / Youth Movement</h3></div>
                 <div class="visual-display">
-                    <div class="media-box"><span class="label">Sketch</span><img src="art6_sketch.png"></div>
+                    <div class="media-box"><span class="label">Draft</span><img src="art6_sketch.png"></div>
                     <div class="media-box"><span class="label">Final Poster</span><img src="art6.png"></div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-col"><h4>Context</h4><p>Campaign poster for youth volunteer activities and student movements.</p></div>
-                    <div class="detail-col"><h4>Material</h4><p>Collage Art style, integrating hand-drawn elements with high-contrast digital typography.</p></div>
-                    <div class="detail-col"><h4>Ideals</h4><p>Maximizing energy through raw, "unfinished" textures to spark communal motivation.</p></div>
+                    <div class="detail-col"><h4>Context</h4><p>Campaign poster for youth volunteer activities and communal student movements.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Digital Collage style. High-contrast typography mixed with hand-drawn raw textures.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Using "unfinished" aesthetics to spark raw energy and communal motivation among the youth.</p></div>
                 </div>
             </div>
 
             <div class="project-item">
                 <div class="project-header"><h3>The 90 Days Countdown</h3></div>
                 <div class="visual-display">
-                    <div class="media-box"><span class="label">Grid Layout</span><img src="art7_sketch.png"></div>
-                    <div class="media-box"><span class="label">Social Asset</span><img src="art7.png"></div>
+                    <div class="media-box"><span class="label">Grid Concept</span><img src="art7_sketch.png"></div>
+                    <div class="media-box"><span class="label">Final Asset</span><img src="art7.png"></div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-col"><h4>Context</h4><p>Social media countdown series for the final 90 days of high school.</p></div>
-                    <div class="detail-col"><h4>Material</h4><p>Vector Graphics & Glow effects. Systematic grid-based layout.</p></div>
-                    <div class="detail-col"><h4>Ideals</h4><p>Creating a futuristic rhythm to build anticipation for the final academic milestone.</p></div>
+                    <div class="detail-col"><h4>Context</h4><p>Social media branding and grid layout for a high school graduation countdown series.</p></div>
+                    <div class="detail-col"><h4>Material</h4><p>Vector Graphics & Glow effects. Systematic grid-based digital layout.</p></div>
+                    <div class="detail-col"><h4>Ideals</h4><p>Creating a futuristic rhythm and aesthetic consistency to build daily anticipation for the final milestone.</p></div>
                 </div>
             </div>
 
-            </section>
+        </section>
 
         <section id="academic">
             <h2 class="section-title">Academic Merit</h2>
